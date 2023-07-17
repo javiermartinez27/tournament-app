@@ -1,0 +1,48 @@
+<h1>New Tournament</h1>
+
+<%= form_with model: @tournament do |form| %>
+  <div>
+    <%= form.label :format %><br>
+    <%= form.text_field :format %>
+    <% @tournament.errors.full_messages_for(:format).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :game %><br />
+    <%= form.select :game_id, options_for_select(Game.all.map{|s|[s.name, s.id]}) %>
+    <% @tournament.errors.full_messages_for(:game).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :position %><br>
+    <%= form.text_area :position %><br>
+    <% @tournament.errors.full_messages_for(:position).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user %><br />
+    <%= form.select :user_id, options_for_select(User.all.map{|s|[s.name, s.id]}) %>
+    <% @tournament.errors.full_messages_for(:user).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :players %><br>
+    <%= form.text_area :players %><br>
+    <% @tournament.errors.full_messages_for(:players).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

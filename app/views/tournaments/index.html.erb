@@ -1,0 +1,8 @@
+<h1>Tournaments#index</h1>
+<p>Find me in app/views/tournaments/index.html.erb</p>
+<% @tournaments.each do |tournament| %>
+    <li>
+        <%= link_to tournament.id, tournament_path(tournament) %>
+    </li>
+<% end %>
+
